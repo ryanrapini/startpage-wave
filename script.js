@@ -1,16 +1,42 @@
 function updateClock() {
-    var now = new Date();
-	hours = now.getHours();
-	minutes = now.getMinutes();
-	if (minutes < 10) {
-		time = hours + ':' + "0" + minutes;
-	} else {
-		time = hours + ':' + minutes;
-	}
-	if (hours < 10) {
-		time = "0" + time;
-	}
-    document.getElementById('time').innerHTML = time;
+    var date = new Date();
+
+    var weekday = new Array(7);
+	weekday[0] = "Sunday";
+	weekday[1] = "Monday";
+	weekday[2] = "Tuesday";
+	weekday[3] = "Wednesday";
+	weekday[4] = "Thursday";
+	weekday[5] = "Friday";
+	weekday[6] = "Saturday";
+
+	var month = new Array();
+	month[0] = "January";
+	month[1] = "February";
+	month[2] = "March";
+	month[3] = "April";
+	month[4] = "May";
+	month[5] = "June";
+	month[6] = "July";
+	month[7] = "August";
+	month[8] = "September";
+	month[9] = "October";
+	month[10] = "November";
+	month[11] = "December";
+	var month_string = month[date.getMonth()];
+	var year = date.getFullYear();
+
+	var weekday_string = weekday[date.getDay()];
+	var datenum = date.getDate();
+	var date_string = weekday_string + ", " + month_string + " " + datenum + " " + year;
+	document.getElementById('date').innerHTML = date_string;
+
+    var hours = date.getHours() > 12 ? date.getHours() - 12 : date.getHours();
+    var am_pm = date.getHours() >= 12 ? "PM" : "AM";
+    hours = hours < 10 ? "0" + hours : hours;
+    var minutes = date.getMinutes() < 10 ? "0" + date.getMinutes() : date.getMinutes();
+    var time_string = hours + ":" + minutes + am_pm;
+    document.getElementById('time').innerHTML = time_string;
     setTimeout(updateClock, 1000);
 }
 

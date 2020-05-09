@@ -74,10 +74,15 @@ a, a:visited, a:hover {
 
 /* ------------- TIME STYLING ------------- */ 
 
-.container .time {
+.container .time, .container .date {
 	font-family: 'test';
 	font-size: 120px;
-	margin-bottom: 20px;
+	margin-bottom: 40px;
+}
+
+.container .date {
+	font-size: 80px;
+	margin-bottom: 70px;
 }
 
 /* ------------- BOX STYLING ------------- */ 
@@ -92,6 +97,7 @@ a, a:visited, a:hover {
 	height: 220px;
 	float: left;
 	border-radius: 5px;
+	margin-bottom: 80px;
 }
 
 .box .box-container:not(:last-child) {
