@@ -35,7 +35,7 @@ function updateClock() {
     var am_pm = date.getHours() >= 12 ? "PM" : "AM";
     hours = hours < 10 ? "0" + hours : hours;
     var minutes = date.getMinutes() < 10 ? "0" + date.getMinutes() : date.getMinutes();
-    var time_string = hours + ":" + minutes + am_pm;
+    var time_string = hours + ":" + minutes + " " + am_pm;
     document.getElementById('time').innerHTML = time_string;
     setTimeout(updateClock, 1000);
 }
